@@ -26,25 +26,8 @@
 
 	   fbq('track', 'PageView');
 
-	   // Search events start -- only fire if the shopper lands on the /search.php page
-	   if (window.location.pathname.indexOf('/search.php') !== -1) {
-	       if ((m = /search_query=(.*)&/.exec(urlParams)) !== null) {
-	           fbq('track', 'Search', { content_ids: productIdsOnPage, content_type: 'product_group', search_string: m[1] });
-	       }
-	   }
-	   // Search events end
-
-	   // Wishlist events start -- only fire if the shopper attempts to add an item to their wishlist
-	   if (window.location.pathname.indexOf('/wishlist.php') !== -1 && (m = /added_product_id=(.\d)/.exec(urlParams)) !== null) {
-	       fbq('track', 'AddToWishlist', { content_ids: [m[1]], content_type: 'product_group' });
-	   }
-	   // Wishlist events end
-
-	   // Lead events start -- only fire if the shopper subscribes to newsletter
-	   if (window.location.pathname.indexOf('/subscribe.php') !== -1 && (m = /result=success/.exec(urlParams)) !== null) {
-	       fbq('track', 'Lead', {});
-	   }
-	   // Lead events end
+	  
+	  
 
 	   // Registration events start -- only fire if the shopper registers an account
 	   if (window.location.pathname.indexOf('/login.php') !== -1 && (m = /action=account_created/.exec(urlParams)) !== null) {
